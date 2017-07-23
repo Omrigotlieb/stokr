@@ -154,6 +154,10 @@ ul.stock-list{
   justify-content: flex-start;
 }
 
+/*[disabled="true"] {*/
+  /*display: none;*/
+/*}*/
+
 .stock-data li {
   width: 100%;
   flex-basis: 10%;
@@ -179,12 +183,19 @@ ul.stock-list{
   height: 16px;
   color: #ababab;
   padding:0;
+  font-size: 16px;
 }
 
-.arrow-up{
+.arrow[disabled]{
+  color: rgba(171, 171, 171, 0.2);
+}
+
+.arrow-down{
   transform: rotate(180deg);
-  margin-bottom: -5px;
-  margin-left: 8px;
+  padding-left: 1px;
+
+  /*margin-bottom: -5px;*/
+  /*margin-left: 8px;*/
 }
 
 

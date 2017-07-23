@@ -11,11 +11,12 @@
     getStockBySymbol,
     getStockButtonEnums,
     getStockButtonDefaultLocation,
-    getEnum
+    getEnum,
+    swapLocationOfStocksDown
   }
 
   function getStocks(){
-    return stockMarketData1;
+    return stockMarketData;
   }
 
   function getStockBySymbol(symbol){
@@ -30,6 +31,18 @@
     return stockButtonDefaultLocation;
   }
 
+  function swapLocationOfStocksDown(symbol,direction){
+    const nextStockLocation = direction === 'up'? -1:1;
+    console.info(symbol,direction);
+    const temp =  getStockBySymbol(symbol);
+    const symbolLocation = stockMarketData.indexOf(temp)
+    const nextStock = stockMarketData[stockMarketData.indexOf(temp) + nextStockLocation];
+    stockMarketData[symbolLocation] = nextStock;
+    stockMarketData[symbolLocation + nextStockLocation] = temp;
+    console.info('temp',temp);
+    console.log(stockMarketData.indexOf(temp));
+  }
+
   function getEnum(stock, enumLocation) {
     switch (enumLocation) {
       case 0:
@@ -41,7 +54,7 @@
     }
   }
 
-  const stockMarketData1 =
+  const stockMarketData =
     [
       {
         "Symbol": "WIX",
